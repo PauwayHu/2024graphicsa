@@ -1,12 +1,19 @@
 #include <GL/glut.h>///18留下來,使用glut外掛
 #include <math.h>
-void display()
+void myCircle(float x,float y,float r)
 {
     glBegin(GL_POLYGON);
     for(float a=0; a<=3.1415*2; a+=0.1){
-        glVertex2f( 0.2*cos(a)+0.5, 0.2*sin(a)+0.5 );
+        glVertex2f( r*cos(a)+x, r*sin(a)+y );
     }
     glEnd();
+}
+void display()
+{
+    myCircle(0.5,0.5,0.3);
+    myCircle(-0.5,0.5,0.3);
+    myCircle(0,-0.1,0.6);
+
     glutSwapBuffers();
 }
 int main(int argc, char *argv[])///138
